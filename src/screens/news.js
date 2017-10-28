@@ -11,19 +11,15 @@ import {
 export default class News extends Component {
   render() {
     return (
-      <Card>
-        <CardItem header>
-          <Text>NativeBase</Text>
-        </CardItem>
-        <CardItem>
-          <Body>
-            <Text>//Your text here</Text>
-          </Body>
-        </CardItem>
-        <CardItem footer>
-          <Text>GeekyAnts</Text>
-        </CardItem>
-      </Card>
+      <Content>
+        <Card>
+          <CardItem>
+            <Body>
+              <Text>//Your text here</Text>
+            </Body>
+          </CardItem>
+        </Card>
+      </Content>
     );
   }
 }

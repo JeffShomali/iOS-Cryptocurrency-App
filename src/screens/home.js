@@ -19,6 +19,7 @@ import Rates from "./rates";
 
 class Home extends Component {
   render() {
+    // console.log(images);
     return (
       <Container>
         <Header hasTabs />
