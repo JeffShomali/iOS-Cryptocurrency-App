@@ -19,18 +19,6 @@ import {
   Spinner
 } from "native-base";
 
-const getCoinsData = () => {
-  return axios
-    .get("https://api.coinmarketcap.com/v1/ticker/?convert=USD&limit=100")
-    .then(response => response.text())
-    .then(responseText => {
-      return responseText;
-    })
-    .catch(err => {
-      return err;
-    });
-};
-
 class Rates extends Component {
   state = {
     isLoading: true,
@@ -60,7 +48,6 @@ class Rates extends Component {
       );
     }
     let items = this.state.coinsData;
-    console.log(items);
     return (
       <Container>
         <ScrollView>
