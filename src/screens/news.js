@@ -63,6 +63,35 @@ export default class News extends Component {
       })
       .done();
   }
+
+  renderNews() {
+    return this.state.dataSource.map(item => {
+      const { title, description, link, date } = item;
+      return (
+        <Card key={link}>
+          <CardItem header>
+            <Text>{title}</Text>
+          </CardItem>
+          <CardItem>
+            <Body>
+              <Text note>{description}</Text>
+            </Body>
+          </CardItem>
+          <CardItem footer>
+            <Left>
+              <Text note onPress={() => Linking.openURL(link)}>
+                more...
+              </Text>
+            </Left>
+            <Right>
+              <Text note>{moment(date).fromNow()} </Text>
+            </Right>
+          </CardItem>
+        </Card>
+      );
+    });
+  }
+
   render() {
     if (this.state.isLoading) {
       return (
@@ -71,34 +100,9 @@ export default class News extends Component {
         </Container>
       );
     }
-    let items = this.state.dataSource;
-
     return (
       <Container>
-        <Content>
-          {items.map((item, i) => (
-            <Card key={i}>
-              <CardItem header>
-                <Text>{item.title}</Text>
-              </CardItem>
-              <CardItem>
-                <Body>
-                  <Text note>{item.description}</Text>
-                </Body>
-              </CardItem>
-              <CardItem footer>
-                <Left>
-                  <Text note onPress={() => Linking.openURL(item.link)}>
-                    more...
-                  </Text>
-                </Left>
-                <Right>
-                  <Text note>{moment(item.date).fromNow()} </Text>
-                </Right>
-              </CardItem>
-            </Card>
-          ))}
-        </Content>
+        <Content>{this.renderNews()}</Content>
       </Container>
     );
   }

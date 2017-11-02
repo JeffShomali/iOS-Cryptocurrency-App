@@ -14,34 +14,87 @@ import {
   Switch,
   Button,
   Card,
-  CardItem
+  CardItem,
+  Segment,
+  Title
 } from "native-base";
 export default class Alerts extends Component {
   state = {
-    language: null
+    segmentActive: "Bitcoin",
+    bitcoinsAlerts: [6500],
+    ethereumAlerts: [400],
+    litcoinAlerts: [100]
   };
+
+  renderCard(card = this.state.segmentActive) {
+    switch (card) {
+      case "Ethereum":
+        this.renderEthereum();
+        break;
+      case "Litcoin":
+        this.renderLitcoin();
+        break;
+      default:
+        this.renderBitcoin();
+        break;
+    }
+  }
+
+  renderBitcoin() {
+    console.log(this.state.bitcoinsAlerts);
+  }
+
+  renderEthereum() {
+    console.log(this.state.ethereumAlerts);
+  }
+
+  renderLitcoin() {
+    console.log(this.state.litcoinAlerts);
+  }
+
+  segmentAction(tab) {
+    switch (tab) {
+      case "Litcoin":
+        this.setState({ segmentActive: "Litcoin" });
+        break;
+      case "Ethereum":
+        this.setState({ segmentActive: "Ethereum" });
+        break;
+      default:
+        this.setState({ segmentActive: "Bitcoin" });
+        break;
+    }
+  }
 
   render() {
     return (
-      <Content>
-        <Card>
-          <CardItem>
-            <Body>
-              <Text>//Your text here</Text>
-            </Body>
-            <Body>
-              <Picker
-                selectedValue={this.state.language}
-                onValueChange={(itemValue, itemIndex) =>
-                  this.setState({ language: itemValue })}
-              >
-                <Picker.Item label="Java" value="java" />
-                <Picker.Item label="JavaScript" value="js" />
-              </Picker>
-            </Body>
-          </CardItem>
-        </Card>
-      </Content>
+      <Container>
+        <Segment>
+          <Button
+            first
+            active={this.state.segmentActive === "Bitcoin" ? true : false}
+            onPress={() => this.segmentAction("Bitcoin")}
+          >
+            <Text>Bitcoin</Text>
+          </Button>
+          <Button
+            active={this.state.segmentActive === "Ethereum" ? true : false}
+            onPress={() => this.segmentAction("Ethereum")}
+          >
+            <Text>Ethereum</Text>
+          </Button>
+          <Button
+            active={this.state.segmentActive === "Litcoin" ? true : false}
+            onPress={() => this.segmentAction("Litcoin")}
+          >
+            <Text>Litcoin</Text>
+          </Button>
+        </Segment>
+
+        <Content padder>
+          <Text>{this.renderCard()}</Text>
+        </Content>
+      </Container>
     );
   }
 }
