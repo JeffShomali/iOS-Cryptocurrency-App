@@ -33,16 +33,7 @@ class Home extends Component {
           >
             <Rates />
           </Tab>
-          <Tab
-            heading={
-              <TabHeading>
-                <Icon name="ios-notifications-outline" />
-                <Text>Alerts</Text>
-              </TabHeading>
-            }
-          >
-            <Alerts />
-          </Tab>
+
           <Tab
             heading={
               <TabHeading>
@@ -52,6 +43,17 @@ class Home extends Component {
             }
           >
             <News />
+          </Tab>
+
+          <Tab
+            heading={
+              <TabHeading>
+                <Icon name="ios-notifications-outline" />
+                <Text>Alerts</Text>
+              </TabHeading>
+            }
+          >
+            <Alerts />
           </Tab>
         </Tabs>
       </Container>

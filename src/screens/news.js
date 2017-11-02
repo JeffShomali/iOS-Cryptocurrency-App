@@ -1,8 +1,10 @@
 var DOMParser = require("xmldom").DOMParser;
 var REQUEST_URL = "https://feeds.feedburner.com/CoinDesk";
+var moment = require("moment");
 
 import React, { Component } from "react";
-import { ScrollView } from "react-native";
+import { ScrollView, Linking, Button } from "react-native";
+import { Router, Scene } from "react-native-router-flux";
 import {
   Container,
   Header,
@@ -70,7 +72,7 @@ export default class News extends Component {
       );
     }
     let items = this.state.dataSource;
-    console.log(items);
+
     return (
       <Container>
         <Content>
@@ -81,15 +83,17 @@ export default class News extends Component {
               </CardItem>
               <CardItem>
                 <Body>
-                  <Text>{item.description}</Text>
+                  <Text note>{item.description}</Text>
                 </Body>
               </CardItem>
               <CardItem footer>
                 <Left>
-                  <Text note> More ...</Text>
+                  <Text note onPress={() => Linking.openURL(item.link)}>
+                    more...
+                  </Text>
                 </Left>
                 <Right>
-                  <Text note>{item.date} </Text>
+                  <Text note>{moment(item.date).fromNow()} </Text>
                 </Right>
               </CardItem>
             </Card>
