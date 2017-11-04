@@ -38,7 +38,7 @@ class Rates extends Component {
     });
     this.setState({ fontLoaded: true });
 
-    fetch("https://api.coinmarketcap.com/v1/ticker/?convert=USD&limit=200")
+    fetch("https://api.coinmarketcap.com/v1/ticker/?convert=USD&limit=1000")
       .then(response => response.json())
       .then(responseJson => {
         this.setState({
@@ -51,35 +51,39 @@ class Rates extends Component {
       });
   }
 
-  iconColor(symbol) {
+  renderListItems(symbol, price_usd, percent_change_24h, market_cap_usd) {
     const value = _.filter(iconColors, { symbol: symbol });
     if (value.length > 0) {
-      return <Icon name={value[0].symbol} size={30} color={value[0].color} />;
-    } else {
-      return <Icon name={"BTC"} size={30} color="gray" />;
+      return (
+        <ListItem avatar>
+          <Left>
+            <Icon name={value[0].symbol} size={30} color={value[0].color} />
+            <Text>{symbol}</Text>
+          </Left>
+          <Body>
+            <Text note>${price_usd}</Text>
+            <Text note>24hr {percent_change_24h}</Text>
+          </Body>
+          <Right>
+            <Text note>${price_usd}</Text>
+            <Text>${market_cap_usd}</Text>
+          </Right>
+        </ListItem>
+      );
     }
   }
 
   renderList() {
-    let items = this.state.coinsData;
-    return items.map((item, i) => {
+    return this.state.coinsData.map((item, i) => {
       const { symbol, price_usd, percent_change_24h, market_cap_usd } = item;
       return (
-        <List>
-          <ListItem avatar key={symbol}>
-            <Left>
-              {this.iconColor(symbol)}
-              <Text>{symbol}</Text>
-            </Left>
-            <Body>
-              <Text note>${price_usd}</Text>
-              <Text note>24hr {percent_change_24h}</Text>
-            </Body>
-            <Right>
-              <Text note>${price_usd}</Text>
-              <Text>${market_cap_usd}</Text>
-            </Right>
-          </ListItem>
+        <List key={i}>
+          {this.renderListItems(
+            symbol,
+            price_usd,
+            percent_change_24h,
+            market_cap_usd
+          )}
         </List>
       );
     });
