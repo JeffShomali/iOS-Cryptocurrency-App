@@ -4,6 +4,7 @@ import {
   Container,
   Header,
   Content,
+  ScrollView,
   List,
   ListItem,
   Text,
@@ -16,15 +17,46 @@ import {
   Card,
   CardItem,
   Segment,
-  Title
+  Title,
+  Spinner
 } from "native-base";
+
 export default class Alerts extends Component {
   state = {
+    isLoading: true,
+    coinsData: null,
     segmentActive: "Bitcoin",
     bitcoinsAlerts: [6500],
     ethereumAlerts: [400],
     litcoinAlerts: [100]
   };
+
+  componentDidMount() {
+    fetch("https://api.coinmarketcap.com/v1/ticker/?convert=USD&limit=10")
+      .then(response => response.json())
+      .then(responseJson => {
+        this.setState({
+          isLoading: false,
+          coinsData: responseJson
+        });
+      })
+      .catch(error => {
+        console.warn(error);
+      });
+  }
+
+  renderBitcoin() {
+    if (this.state.isLoading) {
+      return (
+        <Container>
+          <Spinner />
+        </Container>
+      );
+    }
+    return this.state.coinsData.map(item => {
+      return <Text note>{item.name}</Text>;
+    });
+  }
 
   renderCard(card = this.state.segmentActive) {
     switch (card) {
@@ -38,10 +70,6 @@ export default class Alerts extends Component {
         this.renderBitcoin();
         break;
     }
-  }
-
-  renderBitcoin() {
-    console.log(this.state.bitcoinsAlerts);
   }
 
   renderEthereum() {
@@ -91,9 +119,7 @@ export default class Alerts extends Component {
           </Button>
         </Segment>
 
-        <Content padder>
-          <Text>{this.renderCard()}</Text>
-        </Content>
+        <Content padder>{this.renderCard()}</Content>
       </Container>
     );
   }
