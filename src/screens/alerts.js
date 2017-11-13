@@ -18,7 +18,9 @@ import {
   CardItem,
   Segment,
   Title,
-  Spinner
+  Spinner,
+  SwipeRow,
+  View
 } from "native-base";
 
 export default class Alerts extends Component {
@@ -26,9 +28,9 @@ export default class Alerts extends Component {
     isLoading: true,
     coinsData: null,
     segmentActive: "Bitcoin",
-    bitcoinsAlerts: [6500],
-    ethereumAlerts: [400],
-    litcoinAlerts: [100]
+    bitcoinsAlerts: [6500, 6600],
+    ethereumAlerts: [400, 500],
+    litcoinAlerts: [100, 200]
   };
 
   componentDidMount() {
@@ -45,50 +47,56 @@ export default class Alerts extends Component {
       });
   }
 
-  renderBitcoin() {
-    if (this.state.isLoading) {
-      return (
-        <Container>
-          <Spinner />
-        </Container>
-      );
-    }
-    return this.state.coinsData.map(item => {
-      return <Text note>{item.name}</Text>;
+  renderAlertsListItems(symbol) {
+    var items = symbol;
+    console.log(items);
+    return items.map(item => {
+      <ListItem avatar>
+        <Left>
+          <Text>{item}</Text>
+        </Left>
+        <Body>
+          <Text note>24hr {item}</Text>
+        </Body>
+        <Right>
+          <Text note>${item}</Text>
+        </Right>
+      </ListItem>;
     });
   }
 
-  renderCard(card = this.state.segmentActive) {
+  renderCard() {
+    let card = this.state.segmentActive;
     switch (card) {
       case "Ethereum":
-        this.renderEthereum();
+        return this.renderAlertsListItems(this.state.ethereumAlerts);
         break;
       case "Litcoin":
-        this.renderLitcoin();
+        return this.renderAlertsListItems(this.state.litcoinAlerts);
+        break;
+      case "Bitcoin":
+        return this.renderAlertsListItems(this.state.bitcoinsAlerts);
         break;
       default:
-        this.renderBitcoin();
+        console.log("Nothing clicked");
+        return this.renderAlertsListItems(this.state.bitcoinsAlerts);
         break;
     }
-  }
-
-  renderEthereum() {
-    console.log(this.state.ethereumAlerts);
-  }
-
-  renderLitcoin() {
-    console.log(this.state.litcoinAlerts);
   }
 
   segmentAction(tab) {
     switch (tab) {
-      case "Litcoin":
-        this.setState({ segmentActive: "Litcoin" });
+      case "Bitcoin":
+        this.setState({ segmentActive: "Bitcoin" });
         break;
       case "Ethereum":
         this.setState({ segmentActive: "Ethereum" });
         break;
+      case "Litcoin":
+        this.setState({ segmentActive: "Litcoin" });
+        break;
       default:
+        console.log("Default Bitcoin");
         this.setState({ segmentActive: "Bitcoin" });
         break;
     }
@@ -118,8 +126,13 @@ export default class Alerts extends Component {
             <Text>Litcoin</Text>
           </Button>
         </Segment>
-
-        <Content padder>{this.renderCard()}</Content>
+        <Content>
+          {this.renderCard()}
+          <Button block iconLeft info onPress={() => alert("Loading ...")}>
+            <Icon name="add" />
+            <Text>Create Alert</Text>
+          </Button>
+        </Content>
       </Container>
     );
   }
