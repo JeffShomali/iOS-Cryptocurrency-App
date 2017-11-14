@@ -18,10 +18,11 @@ import {
   Spinner
 } from "native-base";
 
-import { Font } from "expo";
-import { createIconSetFromIcoMoon } from "@expo/vector-icons";
+// import { Font } from "expo";
+import { createIconSetFromIcoMoon } from "react-native-vector-icons";
 import icoMoonConfig from "../selection.json";
-const Icon = createIconSetFromIcoMoon(icoMoonConfig, "FontName");
+const Icon = createIconSetFromIcoMoon(icoMoonConfig);
+
 const iconColors = require("../assets/Js/colors.json");
 import _ from "lodash";
 
@@ -33,11 +34,6 @@ class Rates extends Component {
   };
 
   async componentDidMount() {
-    await Font.loadAsync({
-      FontName: require("../assets/fonts/CoinsIcons.ttf")
-    });
-    this.setState({ fontLoaded: true });
-
     fetch("https://api.coinmarketcap.com/v1/ticker/?convert=USD&limit=1000")
       .then(response => response.json())
       .then(responseJson => {
