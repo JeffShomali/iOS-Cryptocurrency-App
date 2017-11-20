@@ -1,0 +1,29 @@
+dependencies: \
+  /Users/macp15/Projects/REACT_NATIVE_PROJECTS/iOS-Cryptocurrency-App/node_modules/react-native/React/DevSupport/RCTPackagerConnection.m \
+  /Users/macp15/Projects/REACT_NATIVE_PROJECTS/iOS-Cryptocurrency-App/node_modules/react-native/React/DevSupport/RCTPackagerConnection.h \
+  /Users/macp15/Projects/REACT_NATIVE_PROJECTS/iOS-Cryptocurrency-App/node_modules/react-native/React/Base/RCTDefines.h \
+  /Users/macp15/Projects/REACT_NATIVE_PROJECTS/iOS-Cryptocurrency-App/node_modules/react-native/React/Base/RCTAssert.h \
+  /Users/macp15/Projects/REACT_NATIVE_PROJECTS/iOS-Cryptocurrency-App/node_modules/react-native/React/Base/RCTBridge.h \
+  /Users/macp15/Projects/REACT_NATIVE_PROJECTS/iOS-Cryptocurrency-App/node_modules/react-native/React/Base/RCTBridgeDelegate.h \
+  /Users/macp15/Projects/REACT_NATIVE_PROJECTS/iOS-Cryptocurrency-App/node_modules/react-native/React/Base/RCTJavaScriptLoader.h \
+  /Users/macp15/Projects/REACT_NATIVE_PROJECTS/iOS-Cryptocurrency-App/node_modules/react-native/React/Base/RCTBridgeModule.h \
+  /Users/macp15/Projects/REACT_NATIVE_PROJECTS/iOS-Cryptocurrency-App/node_modules/react-native/React/Base/RCTFrameUpdate.h \
+  /Users/macp15/Projects/REACT_NATIVE_PROJECTS/iOS-Cryptocurrency-App/node_modules/react-native/React/Base/RCTInvalidating.h \
+  /Users/macp15/Projects/REACT_NATIVE_PROJECTS/iOS-Cryptocurrency-App/node_modules/react-native/React/Base/RCTConvert.h \
+  /Users/macp15/Projects/REACT_NATIVE_PROJECTS/iOS-Cryptocurrency-App/node_modules/react-native/React/Views/RCTAnimationType.h \
+  /Users/macp15/Projects/REACT_NATIVE_PROJECTS/iOS-Cryptocurrency-App/node_modules/react-native/React/Views/RCTBorderStyle.h \
+  /Users/macp15/Projects/REACT_NATIVE_PROJECTS/iOS-Cryptocurrency-App/node_modules/react-native/React/Base/RCTLog.h \
+  /Users/macp15/Projects/REACT_NATIVE_PROJECTS/iOS-Cryptocurrency-App/node_modules/react-native/React/Base/RCTUtils.h \
+  /Users/macp15/Projects/REACT_NATIVE_PROJECTS/iOS-Cryptocurrency-App/node_modules/react-native/React/Views/RCTPointerEvents.h \
+  /Users/macp15/Projects/REACT_NATIVE_PROJECTS/iOS-Cryptocurrency-App/node_modules/react-native/React/Views/RCTTextDecorationLineType.h \
+  /Users/macp15/Projects/REACT_NATIVE_PROJECTS/iOS-Cryptocurrency-App/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/Yoga.h \
+  /Users/macp15/Projects/REACT_NATIVE_PROJECTS/iOS-Cryptocurrency-App/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGEnums.h \
+  /Users/macp15/Projects/REACT_NATIVE_PROJECTS/iOS-Cryptocurrency-App/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGMacros.h \
+  /Users/macp15/Projects/REACT_NATIVE_PROJECTS/iOS-Cryptocurrency-App/node_modules/react-native/React/../Libraries/WebSocket/RCTReconnectingWebSocket.h \
+  /Users/macp15/Projects/REACT_NATIVE_PROJECTS/iOS-Cryptocurrency-App/node_modules/react-native/React/../Libraries/WebSocket/RCTSRWebSocket.h \
+  /Users/macp15/Projects/REACT_NATIVE_PROJECTS/iOS-Cryptocurrency-App/node_modules/react-native/React/../Libraries/WebSocket/RCTWebSocketObserver.h \
+  /Users/macp15/Projects/REACT_NATIVE_PROJECTS/iOS-Cryptocurrency-App/node_modules/react-native/React/DevSupport/RCTPackagerConnectionBridgeConfig.h \
+  /Users/macp15/Projects/REACT_NATIVE_PROJECTS/iOS-Cryptocurrency-App/node_modules/react-native/React/DevSupport/RCTPackagerConnectionConfig.h \
+  /Users/macp15/Projects/REACT_NATIVE_PROJECTS/iOS-Cryptocurrency-App/node_modules/react-native/React/DevSupport/RCTReloadPackagerMethod.h \
+  /Users/macp15/Projects/REACT_NATIVE_PROJECTS/iOS-Cryptocurrency-App/node_modules/react-native/React/DevSupport/RCTPackagerClient.h \
+  /Users/macp15/Projects/REACT_NATIVE_PROJECTS/iOS-Cryptocurrency-App/node_modules/react-native/React/DevSupport/RCTSamplingProfilerPackagerMethod.h
