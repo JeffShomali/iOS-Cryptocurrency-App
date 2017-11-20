@@ -27,5 +27,9 @@
     "react-native-xml2js": "^1.0.3",
     "xmldom": "^0.1.27"
   },
-  "rnpm": { "assets": ["src/assets/fonts"] }
+  "rnpm": {
+    "assets": [
+      "src/assets/fonts"
+    ]
+  }
 }

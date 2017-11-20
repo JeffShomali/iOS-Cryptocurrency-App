@@ -18,7 +18,6 @@ import {
   Spinner
 } from "native-base";
 
-// import { Font } from "expo";
 import { createIconSetFromIcoMoon } from "react-native-vector-icons";
 import icoMoonConfig from "../selection.json";
 const Icon = createIconSetFromIcoMoon(icoMoonConfig);
